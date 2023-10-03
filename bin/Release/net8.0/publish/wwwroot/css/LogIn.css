@@ -1,0 +1,35 @@
+
+.MainForm {
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
+}
+
+
+  html,
+  body {
+    height: 100%;
+    /* display: flex;
+    align-items: center;  */
+    justify-content: center;
+  }
+
+  .custom-container {
+    max-width: 370px;
+
+  }
+
+
+
+body {
+    background-image: url("/files/fon-1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.ButtonSubmit {
+  background-color: #34C242;
+  width: 100%;
+  color: white;
+  text-transform: capitalize;
+}

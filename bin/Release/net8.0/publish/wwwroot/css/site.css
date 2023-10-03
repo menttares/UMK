@@ -1,0 +1,80 @@
+@font-face {
+  font-family: 'Abel';
+  src: url('../fonts/Abel/abelrusbydaymarius.ttf') format('truetype');
+  /* Замените '/путь/к/шрифту/' на реальный путь к файлу шрифта */
+  /* Если шрифт имеет другое расширение (.otf, .woff и т. д.), измените format соответствующим образом */
+}
+
+body {
+  background-color: #EDEFF1;
+}
+
+.UserIcon {
+  width: 35px;
+  height: 35px;
+}
+
+.NavPanel {
+  background-color: white;
+}
+
+.HRline {
+  margin-top: 0px;
+  margin-bottom: 5px;
+  border: 1px solid #0D6EFD;
+}
+
+.MainPanel {
+  background-color: white;
+}
+
+
+.Search {
+  height: 90%;
+}
+
+.ActiveButtonNav {
+  background-color: #0D6EFD;
+  border-radius: 5px;
+}
+
+.ActiveButtonNav {
+  color: white;
+}
+
+.BorderButtonNav {
+  border-radius: 5px;
+}
+
+.BorderButtonNav:hover {
+  cursor: pointer;
+}
+
+.FileSize {
+  width: 200px;
+}
+
+.FontAbel {
+  font-family: 'Abel', sans-serif;
+  font-weight: bold;
+}
+
+
+.LinkDownFile {
+  text-decoration: none;
+  color: black;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.SizeIconKnowledge {
+  font-size: 25px;
+}
+
+.SizeIconFile {
+  font-size: 15px;
+}
+

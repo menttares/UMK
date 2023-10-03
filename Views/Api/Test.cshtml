@@ -1,0 +1,84 @@
+@model TestResponse
+@{
+    ViewData["Title"] = "Тест";
+}
+
+
+
+<form id="test">
+    @foreach (var question in Model.Questions)
+    {
+        <div id="@question.Question.Id" class="p-2 mb-4 bg-light Answer">
+            <div>@question.Question.QuestioinText</div>
+            @foreach (var option in @question.Options)
+            {
+                <div class="form-check">
+                    <input class="form-check-input" value="@option.Id" type="radio" name="@question.Question.Id"
+                        id="@option.Id">
+                    <label class="form-check-label" for="@option.Id">
+                        @option.Text
+                    </label>
+                </div>
+            }
+        </div>
+    }
+
+    <div class="d-flex">
+        <button id="submitTest" type="submit" class="btn btn-primary">Отправить</button>
+        <span id="ResultTest" class="fs-4 ms-2"></span>
+    </div>
+
+</form>
+
+
+<script>
+
+
+    $("#submitTest").click(function (e) {
+        e.preventDefault();
+        var formData = $("#test").serializeArray();
+        var model = {
+            IdTest: @Model.Test.Id,
+            Answers: {}
+        };
+
+        for (var i = 0; i < formData.length; i++) {
+            var field = formData[i];
+            model.Answers[field.name] = field.value;
+        }
+        $.ajax({
+            url: "/Api/SendResultTest",
+            type: "POST",
+            data: JSON.stringify(model),
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                let result = document.getElementById("ResultTest");
+                let mark = parseFloat(data["mark"]);
+
+                console.log(mark);
+                if (mark <= 4){
+                    result.style.color = "Red";
+                }
+                else if (mark <= 7){
+                    result.style.color = "Yellow";
+                }
+                else
+                {
+                    result.style.color = "Green";
+                }
+                
+                result.innerHTML = "Оценка:" + data["mark"] +"/10";
+                $("#submitTest").text("Тест завершен");
+                $("#submitTest").prop("disabled", true);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+
+</script>
+
+
+
+

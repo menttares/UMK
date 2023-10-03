@@ -1,0 +1,99 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = УМК
+build_property.RootNamespace = УМК
+build_property.ProjectDir = D:\VScode\Курсовые\С#\УМК\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = D:\VScode\Курсовые\С#\УМК
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/VScode/Курсовые/С\#/УМК/Views/AdminPanel/ExcelForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5QYW5lbFxFeGNlbEZvcm0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VScode/Курсовые/С\#/УМК/Views/AdminPanel/ResultTests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5QYW5lbFxSZXN1bHRUZXN0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VScode/Курсовые/С\#/УМК/Views/Api/AdminPanel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBpXEFkbWluUGFuZWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VScode/Курсовые/С\#/УМК/Views/Api/BuildTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBpXEJ1aWxkVGFibGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VScode/Курсовые/С\#/УМК/Views/Api/Test.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBpXFRlc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VScode/Курсовые/С\#/УМК/Views/LogIn/AuthAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9nSW5cQXV0aEFkbWluLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VScode/Курсовые/С\#/УМК/Views/LogIn/AuthUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9nSW5cQXV0aFVzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VScode/Курсовые/С\#/УМК/Views/LogIn/SignUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9nSW5cU2lnblVwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VScode/Курсовые/С\#/УМК/Views/Main/AdminPanel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFpblxBZG1pblBhbmVsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VScode/Курсовые/С\#/УМК/Views/Main/Help.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFpblxIZWxwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VScode/Курсовые/С\#/УМК/Views/Main/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFpblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VScode/Курсовые/С\#/УМК/Views/Main/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFpblxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VScode/Курсовые/С\#/УМК/Views/Main/Tests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFpblxUZXN0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VScode/Курсовые/С\#/УМК/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VScode/Курсовые/С\#/УМК/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VScode/Курсовые/С\#/УМК/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VScode/Курсовые/С\#/УМК/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VScode/Курсовые/С\#/УМК/Views/LogIn/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9nSW5cX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-j222n118vf
+
+[D:/VScode/Курсовые/С\#/УМК/Views/Main/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFpblxfTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-1w5sck3zg5
+
+[D:/VScode/Курсовые/С\#/УМК/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-p56ww9qc1e

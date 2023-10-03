@@ -1,0 +1,26 @@
+@model Dictionary<ResultTest, string>
+
+    
+<table class="table">
+        <thead>
+            <tr>
+                <th scope="col">№</th>
+                <th scope="col">Имя</th>
+                <th scope="col">Группа</th>
+                <th scope="col">Тест</th>
+                <th scope="col">Оценка</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (ResultTest result in Model.Keys)
+        {
+            <tr id="@result.Id">
+                <th scope="row">@result.Id</th>
+                <td>@result.NameStydent</td>
+                <td>@result.NameGroup</td>
+                <td>@Model[result]</td>
+                <td>@result.Mark</td>
+            </tr>
+        }
+        </tbody>
+    </table>

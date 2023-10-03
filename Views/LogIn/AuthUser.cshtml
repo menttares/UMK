@@ -1,0 +1,38 @@
+@{
+    ViewData["Title"] = "Авторизация";
+}
+
+
+<div class="col-md-12 MainForm p-4">
+          <form method="post">
+            <div class="text-center mb-5">
+              <div><span class="">Добро пожаловать</span></div>
+              <div><span class="fs-3 text-uppercase">Вход как ученик</span></div>
+            </div>
+
+            <div class="mb-3">
+              <label for="NameUserId" class="form-label">ФИО</label>
+              <input required  type="text" pattern="[a-zA-Zа-яА-ЯЁё]+([-][a-zA-Zа-яА-ЯЁё]+)*\s+[a-zA-Zа-яА-ЯЁё]+([-][a-zA-Zа-яА-ЯЁё]+)*\s+[a-zA-Zа-яА-ЯЁё]+([-][a-zA-Zа-яА-ЯЁё]+)*$" class="form-control" name="NameUser" id="NameUserId" placeholder="Введите ФИО..">
+            </div>
+
+            <div class="mb-3">
+              <label for="GroupId" class="form-label">Группа</label>
+              <input required type="text" pattern="^[${А-Я}]{1}-[0-9]{3}$" class="form-control" name="Group" id="GroupId" placeholder="Пример группы: Т-118 ">
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="IsRememberMe" value="true" id="checkboxId">
+              <label class="form-check-label" for=checkboxId"">
+                Запомнить меня
+              </label>
+            </div>
+
+            <div class="text-center mt-4">
+              <button type="submit" class="btn btn-block ButtonSubmit text-uppercase">Вход</button>
+            </div>
+
+            <div class="d-flex justify-content-center mt-3">
+                <div class=""><a asp-controller="LogIn" asp-action="AuthAdmin" >Вход как преподаватель</a></div>
+            </div>
+          </form>
+</div>

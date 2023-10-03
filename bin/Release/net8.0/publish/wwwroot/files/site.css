@@ -1,0 +1,34 @@
+.StartButton {
+  background-image: linear-gradient(to right, #bd30bd, #00f2fe);
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  z-index: 1;
+}
+
+.dot {
+
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #bbb7b7;
+
+}
+
+.Max-w {
+  max-width: 630px;
+}
+
+.ButtonFocus {
+  background-color: #1bcdda;
+
+}
+
+.ActiveDot {
+  width: 15px;
+  height: 15px;
+  background-color: #11d6e4;
+}

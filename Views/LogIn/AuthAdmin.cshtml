@@ -1,0 +1,39 @@
+@{
+  ViewData["Title"] = "Авторизация";
+}
+
+
+<div class="col-md-12 MainForm p-4">
+  <form method="post">
+    <div class="text-center mb-5">
+      <div><span class="">C Возвращением</span></div>
+      <div><span class="fs-3 text-uppercase">Вход в аккаунт</span></div>
+    </div>
+
+    <div class="mb-3">
+      <label for="EmailId" class="form-label">Почта</label>
+      <input type="email" class="form-control" name="Email" id="EmailId" aria-describedby="emailHelpId" placeholder="abc@mail.com">
+      <small id="emailHelpId" class="form-text text-muted"></small>
+    </div>
+
+    <div class="mb-3">
+      <label for="PasswordId" class="form-label">Пароль</label>
+      <input type="password" class="form-control" name="Password" id="PasswordId" placeholder="введите пароль..">
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="IsRememberMe" value="true" id="checkboxId">
+      <label class="form-check-label" for="checkboxId">
+        Запомнить меня
+      </label>
+    </div>
+
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-block ButtonSubmit text-uppercase">Вход</button>
+    </div>
+
+    <div class="d-flex justify-content-center mt-3">
+      <div class=""><a asp-controller="LogIn" asp-action="AuthUser">Вход как пользователь</a></div>
+    </div>
+  </form>
+</div>

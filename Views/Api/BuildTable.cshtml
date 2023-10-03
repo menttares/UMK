@@ -1,0 +1,236 @@
+@model List<Knowledge>
+
+<div id="PanelTable">
+    <button id="AddButton" data-KnoType="@ViewBag.TypeKnowledgeId" class="btn btn-primary">Добавить</button>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">№</th>
+            <th scope="col">Название</th>
+            <th scope="col">Описание</th>
+            <th scope="col">Доступ</th>
+            <th scope="col">Задачи</th>
+        </tr>
+    </thead>
+    <tbody id="BodyTable">
+        @foreach (Knowledge knowledge in Model)
+        {
+            <tr id="@knowledge.Id">
+                <th scope="row">@knowledge.Id</th>
+                <td>
+                    <div id="Name-@knowledge.Id">@knowledge.Name</div>
+                    <input id="NameEdit-@knowledge.Id" style="display: none;" class="form-control">
+                    @* <i id="EditNameButton" data-knoId="@knowledge.Id" style="cursor: pointer;" class="bi bi-pencil-square
+                ms-2"></i> *@
+                </td>
+                <td>
+                    <div id="Description-@knowledge.Id">@knowledge.Description</div>
+                    <input id="EditDescription-@knowledge.Id" style="display: none;" class="form-control">
+                    @* <i id="EditDescriptionButton" data-knoId="@knowledge.Id" style="cursor: pointer;" class="bi
+                bi-pencil-square ms-2"></i> *@
+                </td>
+                <td>
+                    <div id="IsAccess-@knowledge.Id">@knowledge.IsAccess</div>
+                    @* <i id="EditIsAccessButton" data-knoId="@knowledge.Id" style="cursor: pointer;" class="bi
+                bi-pencil-square ms-2"></i> *@
+                    <select id="EditIsAccess-@knowledge.Id" style="display: none;" class="form-select"
+                        aria-label="Выбрать доступ">
+                        <option selected value="true">Да</option>
+                        <option value="false">Нет</option>
+                    </select>
+
+                </td>
+
+                <td class="d-flex flex-column">
+                    <div id="EditButton-@knowledge.Id" data-knoId="@knowledge.Id" class="text-primary EditButton"
+                        style="cursor: pointer;">редактировать</div>
+
+                    <div id="AcceptEditButton-@knowledge.Id" data-knoId="@knowledge.Id" style="display: none;"
+                        class="text-primary AcceptEditButton" style="cursor: pointer;">Принять</div>
+
+                    <div id="DeleteButton-@knowledge.Id" data-knoId="@knowledge.Id" class="text-primary DeleteButton"
+                        style="cursor: pointer;">удалить</div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<script>
+    $(function () {
+
+        $("#AddButton").click(function (e) {
+            // Отменить отправку формы по умолчанию
+
+
+            let table = $("#BodyTable");
+            let type = $(this).attr("data-KnoType");
+            // Отправить POST-запрос для создания нового элемента Knowledge
+            $.post(
+                "/AdminPanel/PostKnowledge",
+                {
+                    Type: type
+                },
+                function (data) {
+                    // Создать новую строку в таблице
+                    let tr = $("<tr>").attr("id", data.id);
+
+                    let thId = $("<th>").attr("scope", "row").text(data.id);
+                    tr.append(thId);
+
+                    let tdName = $("<td>");
+                    let divName = $("<div>").attr("id", "Name-" + data.id).text(data.name);
+                    let inputName = $("<input>").attr({ id: "NameEdit-" + data.id, type: "text", class: "form-control", value: data.name, style: "display: none;" });
+                    tdName.append(divName).append(inputName);
+                    tr.append(tdName);
+
+                    let tdDescription = $("<td>");
+                    let divDescription = $("<div>").attr("id", "Description-" + data.id).text(data.description);
+                    let inputDescription = $("<input>").attr({ id: "EditDescription-" + data.id, type: "text", class: "form-control", value: data.description, style: "display: none;" });
+                    tdDescription.append(divDescription).append(inputDescription);
+                    tr.append(tdDescription);
+
+                    let tdIsAccess = $("<td>");
+                    let divIsAccess = $("<div>").attr("id", "IsAccess-" + data.id).text(data.isAccess ? "Да" : "Нет");
+                    let selectIsAccess = $("<select>").attr({ id: "EditIsAccess-" + data.id, class: "form-select", "aria-label": "Выбрать доступ", style: "display: none;" });
+                    let optionYes = $("<option>").attr({ value: true }).text("Да");
+                    let optionNo = $("<option>").attr({ value: false }).text("Нет");
+                    selectIsAccess.append(optionYes).append(optionNo);
+                    tdIsAccess.append(divIsAccess).append(selectIsAccess);
+                    tr.append(tdIsAccess);
+
+                    let tdActions = $("<td>").addClass("d-flex flex-column");
+                    let buttonEdit = $("<div>").attr("id", "EditButton-" + data.id).attr("data-knoId", data.id).addClass("text-primary EditButton").css("cursor", "pointer").text("редактировать");
+                    let buttonAcceptEdit = $("<div>").attr("id", "AcceptEditButton-" + data.id).attr("data-knoId", data.id).addClass("text-primary AcceptEditButton").css("cursor", "pointer").text("Принять").hide();
+                    let buttonDelete = $("<div>").attr("id", "DeleteButton-" + data.id).attr("data-knoId", data.id).addClass("text-primary DeleteButton").css("cursor", "pointer").text("удалить");
+                    tdActions.append(buttonEdit).append(buttonAcceptEdit).append(buttonDelete);
+                    tr.append(tdActions);
+
+                    table.append(tr);
+                }
+            );
+        });
+
+
+
+        $(".DeleteButton").each(function () {
+            $(this).click(function () {
+                let id = $(this).attr("data-knoId");
+                $.ajax({
+                    url: '/AdminPanel/DeleteKnowledge',
+                    type: 'DELETE',
+                    data: {
+                        Id: id
+                    },
+                    success: function () {
+                        $("#" +id ).remove();
+
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.error('Произошла ошибка:', textStatus,
+                            errorThrown);
+                    }
+                });
+            });
+        });
+
+
+        $(".AcceptEditButton").each(function () {
+            $(this).click(function () {
+                let id = $(this).attr("data-knoId");
+
+                let Name = $("#Name-" + id);
+                let Description = $("#Description-" + id);
+                let IsAccess = $("#IsAccess-" + id);
+
+                let inputName = $("#NameEdit-" + id);
+                let inputDescription = $("#EditDescription-" + id);
+                let selectIsAccess = $("#EditIsAccess-" + id);
+
+                $.ajax({
+                    url: '/AdminPanel/PostChangeKnowledge',
+                    type: 'Post',
+                    data: {
+                        Id: id,
+                        Name: inputName.val(),
+                        Description: inputDescription.val(),
+                        IsAccess: selectIsAccess.val()
+                    },
+                    success: function (data) {
+                        inputName.css("display", "none");
+                        inputDescription.css("display", "none");
+                        selectIsAccess.css("display", "none");
+
+                        Name.text(inputName.val());
+                        Description.text(inputDescription.val());
+                        let selectIsAccessText = $("#EditIsAccess-" + id + " option:selected").text();
+                        IsAccess.text(selectIsAccessText);
+
+                        Name.css("display", "");
+                        Description.css("display", "");
+                        IsAccess.css("display", "");
+
+                        $("#EditButton-" + id).css("display", "");
+                        $("#AcceptEditButton-" + id).css("display", "none");
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        inputName.css("display", "none");
+                        inputDescription.css("display", "none");
+                        selectIsAccess.css("display", "none");
+
+                        Name.css("display", "");
+                        Description.css("display", "");
+                        IsAccess.css("display", "");
+
+                        $("#EditButton-" + id).css("display", "");
+                        $(this).css("display", "none");
+                    }
+                });
+            });
+        });
+
+
+
+
+        $(".EditButton").each(function () {
+            $(this).click(function () {
+                let id = $(this).attr("data-knoId");
+
+                let Name = $("#Name-" + id);
+                let Description = $("#Description-" + id);
+                let IsAccess = $("#IsAccess-" + id);
+
+                let inputName = $("#NameEdit-" + id);
+                let inputDescription = $("#EditDescription-" + id);
+                let selectIsAccess = $("#EditIsAccess-" + id);
+
+                inputName.val(Name.text());
+                inputDescription.val(Description.text());
+
+
+                inputName.css("display", "block");
+                inputDescription.css("display", "block");
+                selectIsAccess.css("display", "block");
+                $(this).css("display", "none");
+
+                Name.css("display", "none");
+                Description.css("display", "none");
+                IsAccess.css("display", "none");
+
+                $("#AcceptEditButton-" + id).css("display", "");
+
+            });
+
+        });
+
+    });
+
+
+
+
+
+
+</script>

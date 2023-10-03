@@ -1,0 +1,31 @@
+<form id="form" enctype="multipart/form-data">
+    <input class="form-control mb-2" type="file" name="file" />
+    <button class="btn btn-primary" type="submit">Загрузить файл</button>
+</form>
+
+<div id="result"></div>
+
+
+<script>
+    $(document).on("submit", "#form", function (e) {
+        e.preventDefault();
+
+        var formData = new FormData(this);
+
+        $.ajax({
+            url: "/AdminPanel/PostExcelForm",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (result) {
+                $('#result').html(result);
+            },
+            error: function () {
+                alert("Произошла ошибка при загрузке файла.");
+            }
+        });
+    });
+
+
+</script>
